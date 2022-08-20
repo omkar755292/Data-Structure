@@ -1,4 +1,3 @@
-
 class myLinkedList {
 
     class node {
