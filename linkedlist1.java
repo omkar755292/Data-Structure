@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 // This linked list is add element at the beging of a list
 public class linkedlist1 {
     static class node {
@@ -32,25 +33,59 @@ public class linkedlist1 {
         scan.close();
     }
 
-    
     public void traverse() {
         node temp = head;
         if (head == null) {
             System.out.println("the linked list does not exist");
-
-        } 
-        else {
-            System.out.println("the element in linked list is : ");
+            
+        } else {
+            System.out.print("the element in linked list is : ");
             while (temp != null) {
-                System.out.println(temp.data);
+                System.out.print(" " + temp.data);
                 temp = temp.next;
             }
         }
+        System.out.println();
+    }
+    public void deletinglast() {
+        // System.out.println();
+        node temp = head;
+        node ptr = head.next;
+        System.out.println("after deleting the last element ");
+        while (ptr.next!=null) {
+            temp=ptr;
+            ptr=ptr.next;
+        }
+        temp.next=null;
+        traverse();
+    }
+    public void deletingbegining() {
+        // System.out.println();
+        node temp = head;
+        System.out.print("after deleting from beging ");
+        temp=temp.next;
+        head=temp;
+        traverse();
+    }
+    public void deletingspecific(int n) {
+        System.out.print("after deleting from specific position ");
+        node temp=head;
+        node ptr=temp.next;
+        for (int i = 0; i < n-1; i++) {
+            temp=ptr;
+            ptr=ptr.next;
+        }
+        temp.next=ptr.next;
+        traverse();
     }
 
     public static void main(String[] args) {
         linkedlist1 l1 = new linkedlist1();
         l1.create();
         l1.traverse();
+        l1.deletinglast();
+        l1.deletingbegining();
+        l1.deletingspecific(2);
+
     }
 }
