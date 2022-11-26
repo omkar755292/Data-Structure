@@ -24,10 +24,39 @@ public class circularlinklist1 {
                 tail=newnode;
                 newnode.next=head;
             }else{
-
-                newnode.next=head;
-                head=newnode;
-                tail.next=head;
+                System.out.println("enter 1 if you want to add element at the begining \nEnter 2 if you want to add element at end \nenter 3 if you want to add element in betweent of linked list");
+                int m = scan.nextInt();
+                switch (m) {
+                    case 1:
+                    newnode.next=head;
+                    head=newnode;
+                    tail.next=head; 
+                        break;
+                
+                    case 2:
+                        tail.next=newnode;
+                        tail=newnode;
+                        newnode.next=head;
+                        break;
+                
+                    case 3:
+                        System.out.println("enter the index which you want to add element");
+                        int index = scan.nextInt();
+                        node temp1=head;
+                        for(int i=0;i<index-1;i++){
+                            temp1=temp1.next;
+                        }
+                        newnode.next=temp1.next;
+                        temp1.next=newnode;
+                        break;
+                
+                    default:
+                    System.out.println("item not valid");
+                    newnode.next=head;
+                    head=newnode;
+                    tail.next=head; 
+                        break;
+                }
             }
 
             System.out.println("if you want to add another element then #press 0");
